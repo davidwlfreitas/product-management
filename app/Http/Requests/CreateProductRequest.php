@@ -5,9 +5,15 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use App\Models\Product;
 
+/**
+ * This class is responsible to provide a create request to
+ * the products based on the App\Models\Product.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class CreateProductRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *

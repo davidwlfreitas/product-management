@@ -11,10 +11,22 @@ use DB;
 use App\Models\Product;
 use Carbon;
 
+/**
+ * This class was created to allow the application import
+ * files through a Job instance based on Queue concepts.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class ImportExcelFile extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
+    /**
+     * ImportExcelFile job instance
+     *
+     * @var $excel
+     */
     protected $excel;
 
     /**

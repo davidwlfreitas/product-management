@@ -5,6 +5,13 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use App\Models\Product;
 
+/**
+ * This class is responsible to provide a update request to
+ * the products based on the App\Models\Product.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class UpdateProductRequest extends Request
 {
 

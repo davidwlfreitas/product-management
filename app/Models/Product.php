@@ -6,6 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
+ * This class represents a model of the ProductManagement
+ * structure with the following properties:
+ *
  * @SWG\Definition(
  *      definition="Product",
  *      required={""},
@@ -42,13 +45,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *          format="float"
  *      )
  * )
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
  */
 class Product extends Model
 {
     use SoftDeletes;
 
     public $table = 'products';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -84,8 +90,6 @@ class Product extends Model
      * @var array
      */
     public static $rules = [
-        
-    ];
 
-    
+    ];
 }

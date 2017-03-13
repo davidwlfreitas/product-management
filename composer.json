@@ -4,6 +4,12 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "David Freitas",
+            "email": "davidwlfreitas@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
@@ -16,7 +22,9 @@
         "jlapp/swaggervel": "dev-master",
         "doctrine/dbal": "~2.3",
         "maatwebsite/excel": "~2.1.0",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "illuminate/support": "4.*|5.*",
+        "zizaco/testcases-laravel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
+/**
+ * This file is part of ProductManagement,
+ * a role & permission management solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class PasswordController extends Controller
 {
     /*

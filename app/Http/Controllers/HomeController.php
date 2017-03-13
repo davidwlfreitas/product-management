@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+/**
+ * This class was created to allow the users to access the
+ * ProductManagement application.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class HomeController extends Controller
 {
     /**
@@ -14,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+         $this->middleware('auth');
     }
 
     /**
@@ -25,15 +32,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-    }
-
-    public function import()
-    {
-        // Import a user provided file
-        $file = Input::file('products');
-        $filename = $file->get('filename');
-
-        // Return it's location
-        return $filename;
     }
 }

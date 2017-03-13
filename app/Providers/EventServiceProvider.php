@@ -5,6 +5,13 @@ namespace App\Providers;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+/**
+ * This file is part of ProductManagement,
+ * a service provider management solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -22,6 +29,7 @@ class EventServiceProvider extends ServiceProvider
      * Register any other events for your application.
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * 
      * @return void
      */
     public function boot(DispatcherContract $events)

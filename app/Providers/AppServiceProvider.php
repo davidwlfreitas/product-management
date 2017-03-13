@@ -6,6 +6,13 @@ use Queue;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Queue\Events\JobProcessed;
 
+/**
+ * This file is part of ProductManagement,
+ * a service provider management solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Queue::after(function(JobProcessed $event){
-          // 
+          //
         });
     }
 

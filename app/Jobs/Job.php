@@ -4,6 +4,13 @@ namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 
+/**
+ * This file is part of ProductManagement,
+ * a abstract class job solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 abstract class Job
 {
     /*

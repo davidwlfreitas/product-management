@@ -5,6 +5,13 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * This file is part of ProductManagement,
+ * a role & permission management solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class Authenticate
 {
     /**

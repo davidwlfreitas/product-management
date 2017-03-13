@@ -11,11 +11,30 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+/**
+ * This class was created to supply all the products methods
+ * such as Create, Update, Show and Delete through a
+ * ProductRepository interface.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class ProductController extends AppBaseController
 {
-    /** @var  ProductRepository */
+    /**
+     * ProductRepository repository instance.
+     *
+     * @var $productRepository
+     */
     private $productRepository;
 
+    /**
+     * Create a new instance of ProductRepository
+     *
+     * @param App\Repositories\ProductRepository $productRepo
+     *
+     * @return void
+     */
     public function __construct(ProductRepository $productRepo)
     {
         $this->productRepository = $productRepo;
@@ -25,6 +44,7 @@ class ProductController extends AppBaseController
      * Display a listing of the Product.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)

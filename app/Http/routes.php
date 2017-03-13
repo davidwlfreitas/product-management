@@ -15,6 +15,14 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::auth();
+
+Route::get('/home', 'ProductController@index');
+Route::resource('products', 'ProductController');
+
+Route::get('exportExcel/{type}', 'FilesController@exportExcel');
+Route::post('importExcel', 'FilesController@importExcel');
+
 /*
 |--------------------------------------------------------------------------
 | API routes
@@ -26,13 +34,3 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
 });
-
-
-Route::auth();
-
-//Route::get('/home', 'HomeController@index');
-Route::get('/home', 'ProductController@index');
-Route::resource('products', 'ProductController');
-
-Route::get('exportExcel/{type}', 'FilesController@exportExcel');
-Route::post('importExcel', 'FilesController@importExcel');

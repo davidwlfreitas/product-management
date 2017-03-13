@@ -4,6 +4,13 @@ namespace App\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
+/**
+ * This file is part of ProductManagement,
+ * a role & permission management solution for Laravel.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class EncryptCookies extends BaseEncrypter
 {
     /**

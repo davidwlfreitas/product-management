@@ -4,6 +4,14 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * This class was created to provide Authentication
+ * for the users of ProductManagement application
+ * using Authenticatable and Illuminate\Foundation\Auth\User.
+ *
+ * @license MIT
+ * @package davidwlfreitas\ProductManagement
+ */
 class User extends Authenticatable
 {
     /**
