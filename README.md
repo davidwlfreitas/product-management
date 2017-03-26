@@ -51,38 +51,31 @@ public function exportExcel($type)
 ...
 ```
 
-2.2. Put your own fillabes to be insert in your new table in the job called ***ImportExcelFile.php*** on the function handle().
+2.2. Put your own columns to be insert in your new table in the job called ***ProductRepository.php*** in the function fillArrayInsertProduct().
 
 ```php
-// Prepare insert with row's data.
-if(!$isFillabe){
-  $insert[] = ['category' => $category,
-               'lm' => $data[0],
-               'name' => $data[1],
-               'free_shipping' => $data[2],
-               'description' => $data[3],
-               'price' => $data[4]];
-}
-```
+/**
+     * Fill insert with columns data with Product Model Pattern
+     * based in the array of file excel uploaded.
+     *
+     * @param array $data
+     * @param boolean $isAProductColumn
+     *
+     * @return array $insertProduct
+     */
+    public function fillArrayInsertProduct($category, $data, $isAProductColumn)
+    {
+        $insertProduct = [];
+        if(!$isAProductColumn)
+        {
+          $insertProduct = ['category' => $category,
+                            'lm' => $data[0], 'name' => $data[1],
+                            'free_shipping' => $data[2], 'description' => $data[3],
+                            'price' => $data[4]];
+        }
 
-2.3. Change the name of your new table create or run what you want in the job called ***ImportExcelFile.php*** on the function handle().
-
-```php
-// Set data on the Products' table.
-if(!empty($insert)){
-  foreach ($insert as $key => $value) {
-    $countProducts = DB::table('products')->where('lm', $value['lm'])->count();
-    if($countProducts > 0){
-        // Update Products
-        $value['deleted_at'] = $value['updated_at'] = null;
-        DB::table('products')->where('lm', $value['lm'])->update($value);
-    }else{
-        // Insert new Products
-        $value['created_at'] = Carbon\Carbon::now()->format('Y-m-d H:i:s');
-        DB::table('products')->insert($value);
+        return $insertProduct;
     }
-  }
-}
 ```
 
 ## **Running the tests**
