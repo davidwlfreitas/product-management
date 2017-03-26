@@ -1,4 +1,4 @@
-# Product Management
+# **Product Management** #
 
 This project is a template solution for import/export excel files with different formats, such as .xls, .xlsx and .csv. All the project works based on a products base, but you free for create your own model and after that just change some parts of the code and feel free to change all the views in your own.
 
@@ -12,19 +12,20 @@ You can clone a repo from: [ProductManagement](https://bitbucket.org/davidwlfrei
 
 Run `composer install` command to install required dependencies. Once everything is installed, you are ready to use ProductManagement template.
 
-### Configuration
+### **Configuration**
 
 1) If your prefer put your own models, feel free to change to run your own migrations, but if you prefer using the original models just run the migrations.
 
-```
+```php
+
 php artisan migrate
 
 ```
 2) If you prefer change the product model, follow this steps above:
 
-2.1) Put the name of your new model in the file FileRepository.phpunit on the method exportExcel($type), and change the name of your download files in the parameter 'products_report'.
+2.1. Put the name of your new model in the file ***FileRepository.php*** on the method ***exportExcel($type)***, and change the name of your download files in the parameter **'products_report'**.
 
-```
+```php
 ...
 /**
  * Export files to three differents Excel formats.
@@ -50,9 +51,9 @@ public function exportExcel($type)
 ...
 ```
 
-2.2) Put your own fillabes to be insert in your new table in the job called ImportExcelFile.php on the function handle().
+2.2. Put your own fillabes to be insert in your new table in the job called ***ImportExcelFile.php*** on the function handle().
 
-```
+```php
 // Prepare insert with row's data.
 if(!$isFillabe){
   $insert[] = ['category' => $category,
@@ -64,9 +65,9 @@ if(!$isFillabe){
 }
 ```
 
-2.3) Change the name of your new table create or run what you want in the job called ImportExcelFile.php on the function handle().
+2.3. Change the name of your new table create or run what you want in the job called ***ImportExcelFile.php*** on the function handle().
 
-```
+```php
 // Set data on the Products' table.
 if(!empty($insert)){
   foreach ($insert as $key => $value) {
@@ -84,31 +85,32 @@ if(!empty($insert)){
 }
 ```
 
-## Running the tests
+## **Running the tests**
 
 For tests just run vendor/bin/phpunit
 
-## Built With
+## **Built With**
 
-* [Laravel Excel](http://www.maatwebsite.nl/laravel-excel/docs) - The web framework used
+* [Laravel Excel](http://www.maatwebsite.nl/laravel-excel/docs)
+* [InfyOm](http://labs.infyom.com/laravelgenerator/)
 
-## Contributing guidelines
+## **Contributing guidelines**
 
 Support follows PSR-1 and PSR-4 PHP coding standards, and semantic versioning.
 
 Please report any issue you find in the issues page.
 Pull requests are welcome.
 
-## Authors
+## **Authors**
 
 * **David Freitas** - [davidwlfreitas](https://bitbucket.org/davidwlfreitas)
 
-## Documentation
+## **Documentation**
 
 * Add PHPDoc blocks for all classes, methods, and functions
-* Omit the @return tag if the method does not return anything
-* Add a blank line before @param, @return and @throws
+* Omit the `@return` tag if the method does not return anything
+* Add a blank line before `@param`, `@return` and `@throws`
 
-## License
+## **License**
 
 Product Management is free software distributed under the terms of the MIT license.
