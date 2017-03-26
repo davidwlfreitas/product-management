@@ -28,7 +28,7 @@ class FilesController extends Controller
      * Create a new instance of FileRepositoryInterface.
      *
      * @param App\Repositories\ProductRepository $fileRepo
-     * 
+     *
      * @return void
      */
     public function __construct(FileRepositoryInterface $fileRepo)

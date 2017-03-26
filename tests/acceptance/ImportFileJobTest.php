@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Models\Product;
-
 /**
  * This file was created to make tests on the
  * job ImportExcelFile of the
@@ -12,13 +14,12 @@ use App\Models\Product;
  */
 class ImportFileJobTest extends TestCase
 {
-
-  /**
-   * Product fakeinstance.
-   *
-   * @var $productFake
-   */
-    protected $productFake;
+    /**
+     * Path of a local file
+     *
+     * @var string $localFile
+     */
+     protected $localFile;
 
     /**
      * Test setUp Configurations.
@@ -29,13 +30,6 @@ class ImportFileJobTest extends TestCase
     {
         parent::setUp();
         $this->localFile = __DIR__ . '/files/produtos.xls';
-        $this->productFake = array('id' => 1,
-                                  'category' => 'Ferramentas',
-                                  'lm' => 1001,
-                                  'name' => 'Furadeira X',
-                                  'free_shipping' => 0,
-                                  'description' => 'Furadeira eficiente X',
-                                  'price' => 100);
     }
 
     /**
@@ -48,9 +42,7 @@ class ImportFileJobTest extends TestCase
         $this->visit('/home')
               ->attach($this->localFile, 'arquivo')
               ->press('btnSubmit')
-              ->expectsJobs(App\Jobs\ImportExcelFile::class)
               ->see('Sua requisição já está na nossa fila de processamento e
-           em breve será processada.')
-              ->seeInDatabase('products', $this->productFake);
+            em breve será processada.');
     }
 }

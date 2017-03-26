@@ -10,7 +10,7 @@ use Mockery as m;
  * @license MIT
  * @package davidwlfreitas\ProductManagement
  */
-class RepositoriesServiceProviderTest extends TestCase
+class ServiceProviderTest extends TestCase
 {
     /**
      * Calls Mockery::close
@@ -37,7 +37,7 @@ class RepositoriesServiceProviderTest extends TestCase
         */
         $sp = m::mock(
             'App\Providers\RepositoriesServiceProvider'.
-            '[registerFileRepository, registerExcelRepository]',
+            '[registerFileRepository, registerExcelRepository, registerProductRepository]',
             ['something']
         );
         $sp->shouldAllowMockingProtectedMethods();
@@ -49,7 +49,8 @@ class RepositoriesServiceProviderTest extends TestCase
         */
         $sp->shouldReceive(
             'registerFileRepository',
-            'registerExcelRepository'
+            'registerExcelRepository',
+            'registerProductRepository'
         )
         ->once();
 
@@ -108,7 +109,7 @@ class RepositoriesServiceProviderTest extends TestCase
     }
 
     /**
-     * Test testShouldRegisterExcelRepository method of the 
+     * Test testShouldRegisterExcelRepository method of the
      * repositories application services.
      *
      * @return void
@@ -151,5 +152,51 @@ class RepositoriesServiceProviderTest extends TestCase
         |------------------------------------------------------------
         */
         $sp->registerExcelRepository();
+    }
+
+    /**
+     * Test testShouldRegisterProductRepository method of the
+     * repositories application services.
+     *
+     * @return void
+     */
+    public function testShouldRegisterProductRepository()
+    {
+        /*
+        |------------------------------------------------------------
+        | Set
+        |------------------------------------------------------------
+        */
+        $test = $this;
+        $app = m::mock('ProductManagementApp');
+        $sp = m::mock('App\Providers\RepositoriesServiceProvider'.
+                      '[registerProductRepository]', [$app]);
+        $sp->shouldAllowMockingProtectedMethods();
+
+        /*
+        |------------------------------------------------------------
+        | Expectation
+        |------------------------------------------------------------
+        */
+        $sp->shouldReceive('registerProductRepository')
+            ->once();
+
+        $app->shouldReceive('bind')
+            ->andReturnUsing(
+                // Make sure that the name is 'pp\Repositories\ProductRepositoryInterface'
+                // and that the closure passed returns the correct
+                // kind of object.
+                function ($name, $closure) use ($test, $app) {
+                    $test->assertEquals('App\Repositories\ProductRepositoryInterface', $name);
+                    $test->assertInstanceOf('App\Repositories\ProductRepository', $closure($app));
+                }
+            );
+
+        /*
+        |------------------------------------------------------------
+        | Assertion
+        |------------------------------------------------------------
+        */
+        $sp->registerProductRepository();
     }
 }

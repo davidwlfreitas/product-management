@@ -56,4 +56,22 @@ interface ExcelRepositoryInterface
      */
     public function fillDataExcel($sheet, $excel);
 
+    /**
+     * Read a uploaded report excel with a goal to return
+     * the information configured with the Product model pattern.
+     *
+     * @param array $excel
+     *
+     * @return array $inserts on the Product model
+     */
+    public function readDataExcelAsAProduct($excel);
+
+    /**
+     * Save a uploaded report excel data in the Product table.
+     *
+     * @param array $insertProducts
+     *
+     * @return void
+     */
+    public function saveDataExcelInProduct($insertProducts);
 }

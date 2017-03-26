@@ -71,7 +71,7 @@ class FileRepository implements FileRepositoryInterface
     public function importExcel($path)
     {
         $excel = $this->excelRepository->loadReportExcel($path);
-        $jobImport = (new ImportExcelFile($excel));
+        $jobImport = new ImportExcelFile($excel, $this->excelRepository);
         return $jobImport;
     }
 }

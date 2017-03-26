@@ -33,6 +33,8 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->registerFileRepository();
 
         $this->registerExcelRepository();
+
+        $this->registerProductRepository();
     }
 
     /**
@@ -55,5 +57,16 @@ class RepositoriesServiceProvider extends ServiceProvider
     {
         $this->app->bind('App\Repositories\ExcelRepositoryInterface',
                           'App\Repositories\ExcelRepository');
+    }
+
+    /**
+     * Register the application services of ProductRepository.
+     *
+     * @return void
+     */
+    protected function registerProductRepository()
+    {
+        $this->app->bind('App\Repositories\ProductRepositoryInterface',
+                          'App\Repositories\ProductRepository');
     }
 }
