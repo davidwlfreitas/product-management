@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Product;
 use InfyOm\Generator\Common\BaseRepository;
-// use App\Repositories\BaseRepository;
 use App\Repositories\ProductRepositoryInterface;
 
 /**
@@ -101,6 +100,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
      * some difficulties during the excel file reading.
      *
      * @param array $data
+     * @param String $category
      *
      * @return String $category
      */

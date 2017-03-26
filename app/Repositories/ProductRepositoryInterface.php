@@ -43,6 +43,7 @@ interface ProductRepositoryInterface
      * some difficulties during the excel file reading.
      *
      * @param array $data
+     * @param String $category
      *
      * @return String $category
      */
