@@ -6,7 +6,7 @@ This project is a template solution for import/export excel files with different
 
 1) Clone Repo
 
-You can clone a repo from: [ProductManagement](https://bitbucket.org/davidwlfreitas/product-management)
+`git clone git@github.com:davidwlfreitas/product-management.git`
 
 2) Run composer install
 
@@ -96,7 +96,7 @@ Pull requests are welcome.
 
 ## **Authors**
 
-* **David Freitas** - [davidwlfreitas](https://bitbucket.org/davidwlfreitas)
+* **David Freitas** - [davidwlfreitas](https://github.com/davidwlfreitas)
 
 ## **Documentation**
 
