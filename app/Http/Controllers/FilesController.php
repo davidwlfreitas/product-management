@@ -73,8 +73,8 @@ class FilesController extends Controller
 
             $this->dispatch($this->fileRepository->importExcel($path));
 
-            Session::flash('message', "Sua requisição já está na nossa fila de processamento e
-            em breve será processada.");
+            Session::flash('message', "Your request is already in our processing queue and
+             will be processed soon.");
 
             return back();
         }
